@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blurry Loading</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      body {
+        overflow: hidden;
+      }
+      .bg-image {
+        background: url("https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80")
+          no-repeat center center/cover;
+        height: 100vh;
+        width: 100vw;
+        filter: blur(0px);
+      }
+      .loading-text {
+        opacity: 0.8;
+        color: black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        transform: translate(-50%, -50%);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="bg-image"></section>
+    <div class="loading-text">0%</div>
+    <script>
+      const loadText = document.querySelector(".loading-text");
+      const bgImage = document.querySelector(".bg-image");
+      let load = 0;
+      let int = setInterval(blur, 30);
+      function blur() {
+        load++;
+        if (load > 99) {
+          clearInterval(int);
+        }
+        loadText.innerText = `${load}%`;
+        loadText.style.opacity = 1 - load / 100;
+        bgImage.style.filter = `blur(${100 - load}px)`;
+      }
+    </script>
+  </body>
+</html>

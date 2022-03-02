@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Steps</title>
+    <style>
+      .btn-box {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      button {
+        padding: 10px 30px;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+        color: white;
+      }
+      button:nth-of-type(1) {
+        background-color: #e0e0e0;
+      }
+      button:nth-of-type(2) {
+        background-color: #3498db;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+      }
+      .circle {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        border: 3px solid #e0e0e0;
+        position: relative;
+        text-align: center;
+        transition: border 0.5s ease;
+        color: #999;
+      }
+      .item {
+        height: 3px;
+        width: 80px;
+        background-color: #e0e0e0;
+        transition: width 0.5s ease;
+      }
+      .circle:nth-of-type(1) {
+        border: 3px solid #3498db;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle" id="item-1">1</div>
+      <div class="item" id="item-2"></div>
+      <div class="circle" id="item-3">2</div>
+      <div class="item" id="item-4"></div>
+      <div class="circle" id="item-5">3</div>
+      <div class="item" id="item-6"></div>
+      <div class="circle" id="item-7">4</div>
+    </div>
+    <div class="btn-box">
+      <button type="button" id="prev">Prev</button>
+      <button type="button" id="next">Next</button>
+    </div>
+    <script>
+      const prevBtn = document.querySelector("#prev");
+      const nextBtn = document.querySelector("#next");
+      let currentActive = 1;
+      nextBtn.addEventListener("click", () => {
+        if (currentActive === 1) {
+          document.getElementById(`item-${2}`).style.backgroundColor =
+            "#3498db";
+          document.getElementById(`item-${3}`).style.borderColor = "#3498db";
+          document.getElementById("prev").style.backgroundColor = "#3498db";
+          currentActive++;
+        } else if (currentActive === 2) {
+          document.getElementById(`item-${4}`).style.backgroundColor =
+            "#3498db";
+          document.getElementById(`item-${5}`).style.borderColor = "#3498db";
+          currentActive++;
+        } else if (currentActive === 3) {
+          document.getElementById(`item-${6}`).style.backgroundColor =
+            "#3498db";
+          document.getElementById(`item-${7}`).style.borderColor = "#3498db";
+          document.getElementById("next").style.backgroundColor = "#e0e0e0";
+          currentActive++;
+        }
+      });
+      prevBtn.addEventListener("click", () => {
+        if (currentActive === 4) {
+          document.getElementById(`item-${6}`).style.backgroundColor =
+            "#e0e0e0";
+          document.getElementById(`item-${7}`).style.borderColor = "#e0e0e0";
+          document.getElementById("next").style.backgroundColor = "#3498db";
+          currentActive--;
+        } 
+        else if (currentActive === 3) {
+          document.getElementById(`item-${4}`).style.backgroundColor =
+            "#e0e0e0";
+          document.getElementById(`item-${5}`).style.borderColor = "#e0e0e0";
+          currentActive--;
+        } 
+        else if (currentActive === 2) {
+          document.getElementById(`item-${2}`).style.backgroundColor =
+            "#e0e0e0";
+          document.getElementById(`item-${3}`).style.borderColor = "#e0e0e0";
+          currentActive--;
+          document.getElementById("prev").style.backgroundColor = "#e0e0e0";
+
+        } 
+      });
+    </script>
+  </body>
+</html>

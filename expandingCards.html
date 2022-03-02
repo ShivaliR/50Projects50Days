@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expanding cards</title>
+    <style>
+      body {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 0 50px;
+      }
+      .image {
+        /* height: auto;
+            width: 100%; */
+        /* IMAGE QUALITY IS GOOD HERE  */
+        height: 75vh;
+        width: 6vw;
+        border-radius: 100px;
+        cursor: pointer;
+        border: none;
+        transition: width 0.7s ease-in;
+        position: relative;
+        padding: 10px 10px;
+      }
+      .active-image {
+        height: 75vh;
+        width: 80vw;
+        border-radius: 50px;
+        cursor: pointer;
+        border: none;
+        position: relative;
+        padding: 10px 10px;
+        transition: width 0.7s ease-in;
+      }
+      .active-image h3 {
+        display: inline-block;
+        position: absolute;
+        bottom: 10px;
+        color: white;
+        left: 50px;
+        font-family: "Muli", "sans-serif";
+      }
+      h3 {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        color: white;
+        left: 50px;
+        font-family: "Muli", "sans-serif";
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="active-image"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+      "
+    >
+      <h3>Explore The World</h3>
+    </div>
+    <div
+      class="image"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+      "
+    >
+      <h3>Wild Forest</h3>
+    </div>
+    <div
+      class="image"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80');
+      "
+    >
+      <h3>Sunny Beach</h3>
+    </div>
+    <div
+      class="image"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80');
+      "
+    >
+      <h3>City on Winter</h3>
+    </div>
+    <div
+      class="image"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+      "
+    >
+      <h3>Mountains - Clouds</h3>
+    </div>
+    <script>
+      var prevElement =  document.querySelector(".active-image");
+      document.addEventListener("click", function (e) {
+        prevElement.classList.replace("active-image", "image");
+        prevElement.querySelector("h3").style.display = "none";
+        let selectElement = document.elementFromPoint(e.pageX, e.pageY);
+        if (selectElement.className === "image") {
+          selectElement.classList.replace("image", "active-image");
+          selectElement.querySelector("h3").style.display = "inline-block";
+          prevElement = selectElement;
+        }
+      });
+    </script>
+  </body>
+</html>

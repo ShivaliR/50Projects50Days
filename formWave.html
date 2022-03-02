@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Input Wave</title>
+    <style>
+      body {
+        background-color: steelblue;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Muli, sans-serif;
+      }
+      .container{
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 60vh;
+        width: 25vw;
+        border-radius: 5px;
+        padding: 10px 10px;
+        color: #fff;
+        position: relative;
+      }
+      .container h1{
+        text-align: center;
+        font-weight: bold;
+      }
+      .form-control label{
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: -40px;
+        box-sizing: border-box;
+        transition: 0.3s transform cubic-bezier(1,1,1,1);
+      }
+      .form-control input{
+        outline: none;
+        background-color: transparent;
+        border-color: transparent;
+        border-bottom: 2px solid #fff;
+        font-size: 20px;
+        width: 15em;
+        caret-color: #fff;
+        /* CHANGES CURSOR COLOR  */
+        padding: 15px 0;
+      }
+      form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 40px;
+        padding-top: 45px;
+        color: #fff;
+      }
+      .login-btn button{
+        width: 19em;
+        padding: 15px 0;
+        border-radius: 5px;
+        background-color: lightblue;
+        outline: none;
+        border: none;
+        font-size: medium;
+        margin-top: 20px;
+      }
+      .bottom-text{
+        position: absolute;
+        bottom: 30px;
+        left: 50px;
+      }
+      .bottom-text a{
+        color: lightblue;
+      }
+      .bottom-text p{
+        color: #fff;
+      }
+      .form-control{
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Please Login</h1>
+        <form>
+            <div class="form-control">
+                <label for="email" id="labelEmail">Email</label>
+                <input type="text" autocomplete='off' name="email" id="email" required />
+            </div>
+            <div class="form-control">
+                <label for="password" id='labelPassword'>Password</label>
+                <input type="password" autocomplete='off' name="password" id="password" required />
+            </div>
+            <div class="login-btn">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div class="bottom-text">
+            <p>Don't have an account? <a>Register</a></p>
+        </div>
+    </div>
+    <!-- SCRIPT  -->
+    <script>
+        const inputEmail = document.getElementById('email');
+        const labelEmail = document.getElementById('labelEmail');
+        const inputPassword = document.getElementById('password');
+        const labelPassword = document.getElementById('labelPassword');
+        inputEmail.addEventListener('click', ()=>{
+            labelEmail.style.transform='translate(0, -20px)';
+            labelEmail.style.color = 'lightblue';
+            inputEmail.style.borderBottom = '2px solid lightblue';
+        });
+        inputPassword.addEventListener('click', ()=>{
+            labelPassword.style.transform='translate(0, -20px)';
+            labelPassword.style.color = 'lightblue';
+            inputPassword.style.borderBottom = '2px solid lightblue';
+        });
+    </script>
+  </body>
+</html>

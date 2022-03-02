@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotating Navigation Animation</title>
+    <script
+      src="https://kit.fontawesome.com/1c4b5594f1.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      body {
+        font-family: "Lato", "sans-serif";
+        transition: transform 0.5s ease-in;
+        background-color: #333;
+      }
+      /* #open-nav{
+        height: 100px;
+        width: 100px;
+        border-radius: 0 0 100% 0;
+        background-color: #ff7979;
+        position: relative;
+        display: inline-block;
+        transition: display 0.5s ease-in;
+      } */
+      nav {
+        height: 100px;
+        width: 200px;
+        border-radius: 0 0 100px 100px;
+        background-color: #ff7979;
+        position: relative;
+        transform: translate(-50%);
+        transition: transform 1s ease;
+        z-index: 0;
+      }
+      #open {
+        background-color: transparent;
+        border: none;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        transform: translate(-100%, -65%);
+        color: white;
+      }
+      #close {
+        background-color: transparent;
+        border: none;
+        display: block;
+        position: absolute;
+        top: 45%;
+        left: 40%;
+        transform: translate(-100%, -65%);
+        color: white;
+      }
+      section {
+        padding: 0 200px;
+        transition: transform 1s ease;
+      }
+      .container {
+        width: 65vw;
+        background-color: aliceblue;
+      }
+      img {
+        width: 65vw;
+        padding: 5px 0;
+      }
+      .container h1 {
+        font-size: 2em;
+        font-weight: bold;
+      }
+      .container small {
+        font-style: italic;
+        font-size: 1em;
+        color: #555;
+      }
+      .container p {
+        line-height: 1.5;
+        color: #333;
+        padding: 10px 0;
+      }
+      aside{
+        background-color: #333;
+        color: white;
+        font-family: "Lato", "sans-serif";
+        position: absolute;
+        height: 100vh;
+        top:0;
+        z-index: -1;
+        display: none;
+        width: 15vw;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button id="open">
+          <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <button id="close">
+          <i class="fas fa-times fa-2x"></i>
+        </button>
+      </nav>
+    </header>
+    <section>
+      <div class="container">
+        <h1>Amazing Article</h1>
+        <small>Florin Pop</small>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+          est quibusdam, corrupti praesentium excepturi omnis in ad debitis!
+          Aliquam sint rerum dignissimos sunt odit laboriosam asperiores
+          voluptatibus ullam dolor est dolorem velit odio rem quisquam corporis
+          dolore nulla, quidem assumenda nam numquam? Ipsum numquam atque
+          temporibus velit iusto aliquam, enim officia eveniet provident impedit
+          veniam deleniti, ut dignissimos iste fugiat at accusamus illum odit
+          exercitationem similique voluptate perspiciatis fuga nostrum vitae!
+          Ducimus beatae porro, at assumenda reiciendis omnis nesciunt delectus
+          debitis aliquam culpa voluptas! Quidem nesciunt illo magnam soluta,
+          voluptate laborum, harum fugit id numquam nihil quos non cum quo.
+        </p>
+        <h2>My Dog</h2>
+        <img
+          src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+          alt="doggy"
+        />
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit libero
+          deleniti rerum quo, incidunt vel consequatur culpa ullam. Magnam
+          facere earum unde harum. Ea culpa veritatis magnam at aliquid.
+          Perferendis totam placeat molestias illo laudantium? Minus id minima
+          doloribus dolorum fugit deserunt qui vero voluptas, ut quia cum amet
+          temporibus veniam ad ea ab perspiciatis, enim accusamus asperiores
+          explicabo provident. Voluptates sint, neque fuga cum illum, tempore
+          autem maxime similique laborum odio, magnam esse. Aperiam?
+        </p>
+      </div>
+    </section>
+    <aside>
+      <div class="list-item" id="item-1">
+        <i class="fas fa-home">HOME</i>
+      </div>
+      <div class="list-item" id="item-2">
+        <i class="fas fa-user-alt">ABOUT</i>
+      </div>
+      <div class="list-item" id="item-3">
+        <i class="fas fa-envelope">CONTACT</i>
+      </div>
+    </aside>
+    <script>
+      const navOpen = document.querySelector("nav");
+      const btnOpen = document.querySelector("#open");
+      const btnClose = document.querySelector("#close");
+      const section = document.querySelector("section");
+      const asideBar = document.querySelector("aside");
+      btnOpen.addEventListener("click", () => {
+        // navOpen.style.transform = "translate(-50px,-50px) rotate(-90deg)";
+        section.style.transform = "translate(150px, -300px) rotate(-20deg)";
+        // asideBar.style.display = "block";
+        // asideBar.style.transform = " translate(100px,50px) rotate(-20deg)";
+      });
+      btnClose.addEventListener("click", () => {
+        navOpen.style.transform = "translate(-50%) rotate(0deg)";
+        section.style.transform = "translate(80px, 0px)";
+        asideBar.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
