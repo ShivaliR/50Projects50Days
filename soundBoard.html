@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sound Board</title>
+    <style>
+      body {
+        background-color: rgb(161, 100, 223);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        overflow: hidden;
+      }
+      button {
+        background-color: rebeccapurple;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        height: 12vh;
+        width: 12vw;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="applause" id="id" type="button">applause</button>
+    <button id="boo" type="button">boo</button>
+    <button id="gasp" type="button">gasp</button>
+    <button id="tada" type="button">tada</button>
+    <button id="victory" type="button">victory</button>
+    <button id="wrong" type="button">wrong</button>
+  </body>
+  <script>
+    const buttonObj = document.querySelectorAll("button");
+    let soundArr = new Array();
+    buttonObj.forEach((element) => {
+      soundArr.push(element.textContent);
+    });
+    soundArr.forEach(sound=>{
+        let btn = document.getElementById(sound);
+        if (btn.children.length === 0) {
+        let audio = document.createElement("audio");
+        // audio.src = `audio/${sound}.mp3`;--> NOT WORKING
+        if(sound=='applause'){
+            audio.src=`https://50projects50days.com/projects/sound-board/sounds/applause.mp3`;
+        }
+        if(sound=='boo'){
+            audio.src=`https://50projects50days.com/projects/sound-board/sounds/boo.mp3`;
+        }
+        if(sound=='gasp'){
+            audio.src='https://50projects50days.com/projects/sound-board/sounds/gasp.mp3';
+        }
+        if(sound=='tada'){
+            audio.src=`https://50projects50days.com/projects/sound-board/sounds/tada.mp3`;
+        }
+        if(sound=='victory'){
+            audio.src=`https://50projects50days.com/projects/sound-board/sounds/victory.mp3`;
+        }
+        if(sound=='wrong'){
+            audio.src=`https://50projects50days.com/projects/sound-board/sounds/wrong.mp3`;
+        }
+        audio.id=`audio-${sound}`;
+        document.getElementById(sound).appendChild(audio);
+        btn.addEventListener('click', ()=>{
+            let remArr = soundArr.filter(item=>item!=sound);
+            remArr.forEach(element=>{
+                document.getElementById(`audio-${element}`).pause();
+            })
+            document.getElementById(`audio-${sound}`).play();
+        })
+      }
+    });
+    
+  </script>
+</html>

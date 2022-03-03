@@ -15,7 +15,7 @@
         height: 100vh;
         font-family: Muli, sans-serif;
       }
-      .container{
+      .container {
         background-color: rgba(0, 0, 0, 0.4);
         height: 60vh;
         width: 25vw;
@@ -24,18 +24,38 @@
         color: #fff;
         position: relative;
       }
-      .container h1{
+      .container h1 {
         text-align: center;
         font-weight: bold;
       }
-      .form-control label{
+      .form-control label {
         color: #fff;
         font-size: 18px;
         margin-bottom: -40px;
         box-sizing: border-box;
-        transition: 0.3s transform cubic-bezier(1,1,1,1);
+        /* transition: 0.3s transform cubic-bezier(0.68, -0.55, 0.265, 1.55); */
       }
-      .form-control input{
+      span:nth-of-type(1){
+        transition: 0.3s transform ease 50ms;
+        transition: 0.3s color ease 50ms;
+      }
+      span:nth-of-type(2){
+        transition: 0.3s transform ease 100ms;
+        transition: 0.3s color ease 100ms;
+      }
+      span:nth-of-type(3){
+        transition: 0.3s transform ease 150ms;
+        transition: 0.3s color ease 150ms;
+      }
+      span:nth-of-type(4){
+        transition: 0.3s transform ease 200ms;
+        transition: 0.3s color ease 200ms;
+      }
+      span:nth-of-type(5){
+        transition: 0.3s transform ease 250ms;
+        transition: 0.3s color ease 250ms;
+      }
+      .form-control input {
         outline: none;
         background-color: transparent;
         border-color: transparent;
@@ -46,7 +66,7 @@
         /* CHANGES CURSOR COLOR  */
         padding: 15px 0;
       }
-      form{
+      form {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -55,7 +75,7 @@
         padding-top: 45px;
         color: #fff;
       }
-      .login-btn button{
+      .login-btn button {
         width: 19em;
         padding: 15px 0;
         border-radius: 5px;
@@ -65,18 +85,19 @@
         font-size: medium;
         margin-top: 20px;
       }
-      .bottom-text{
+      .bottom-text {
         position: absolute;
         bottom: 30px;
         left: 50px;
       }
-      .bottom-text a{
+      .bottom-text a {
         color: lightblue;
+        cursor: pointer;
       }
-      .bottom-text p{
+      .bottom-text p {
         color: #fff;
       }
-      .form-control{
+      .form-control {
         display: flex;
         flex-direction: column;
       }
@@ -84,40 +105,61 @@
   </head>
   <body>
     <div class="container">
-        <h1>Please Login</h1>
-        <form>
-            <div class="form-control">
-                <label for="email" id="labelEmail">Email</label>
-                <input type="text" autocomplete='off' name="email" id="email" required />
-            </div>
-            <div class="form-control">
-                <label for="password" id='labelPassword'>Password</label>
-                <input type="password" autocomplete='off' name="password" id="password" required />
-            </div>
-            <div class="login-btn">
-                <button type="submit">Login</button>
-            </div>
-        </form>
-        <div class="bottom-text">
-            <p>Don't have an account? <a>Register</a></p>
+      <h1>Please Login</h1>
+      <form>
+        <div class="form-control">
+          <!-- <label for="email" id="labelEmail">Email</label> -->
+          <label for="email" id="labelEmail">
+            <span>E</span><span>m</span><span>a</span><span>i</span
+            ><span>l</span>
+          </label>
+          <input
+            type="text"
+            autocomplete="off"
+            name="email"
+            id="email"
+            required
+          />
         </div>
+        <div class="form-control">
+          <label for="password" id="labelPassword">Password</label>
+          <input
+            type="password"
+            autocomplete="off"
+            name="password"
+            id="password"
+            required
+          />
+        </div>
+        <div class="login-btn">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      <div class="bottom-text">
+        <p>Don't have an account? <a>Register</a></p>
+      </div>
     </div>
     <!-- SCRIPT  -->
     <script>
-        const inputEmail = document.getElementById('email');
-        const labelEmail = document.getElementById('labelEmail');
-        const inputPassword = document.getElementById('password');
-        const labelPassword = document.getElementById('labelPassword');
-        inputEmail.addEventListener('click', ()=>{
-            labelEmail.style.transform='translate(0, -20px)';
-            labelEmail.style.color = 'lightblue';
-            inputEmail.style.borderBottom = '2px solid lightblue';
+      const inputEmail = document.getElementById("email");
+      const labelEmail = document.getElementById("labelEmail");
+      const inputPassword = document.getElementById("password");
+      const labelPassword = document.getElementById("labelPassword");
+      const emailText = document.querySelectorAll("span");
+      console.log(emailText);
+      inputEmail.addEventListener("click", () => {
+        emailText.forEach((item) => {
+          item.style.color = "red";
+          item.style.transform = "translateY(-20px)";//NOT WORKING 🤔
         });
-        inputPassword.addEventListener('click', ()=>{
-            labelPassword.style.transform='translate(0, -20px)';
-            labelPassword.style.color = 'lightblue';
-            inputPassword.style.borderBottom = '2px solid lightblue';
-        });
+        // labelEmail.style.color = "lightblue";
+        inputEmail.style.borderBottom = "2px solid lightblue";
+      });
+      inputPassword.addEventListener("click", () => {
+        labelPassword.style.transform = "translateY(-20px)";
+        labelPassword.style.color = "lightblue";
+        inputPassword.style.borderBottom = "2px solid lightblue";
+      });
     </script>
   </body>
 </html>
