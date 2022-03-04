@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Landing Page</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+        }
+        .playstation-five{
+            background: linear-gradient( rgba(6, 6, 248, 0.452) 100%, rgba(6, 6, 248, 0.452) 100%),url("https://50projects50days.com/projects/split-landing-page/ps.jpg") center/cover;
+            height: 100vh;
+            width: 50vw;
+            position: relative;
+        }
+        .playstation-five:hover{
+            width: 120vw;
+            transition: width 0.7s ease-in;
+        }
+        .playstation-five::before{
+            content: '';
+            background-color: rgba(87, 84, 236, 1);
+            height:100vh;
+            width: 50vw;
+        }
+        .playstation-five h1{
+            position: absolute;
+            left: 35%;
+            top: 22%;
+            font-size: 60px;
+            color: #fff;
+            min-width: auto;
+            min-height: auto;
+            font-weight: bold;
+        }
+        .xbox-series-x{
+            background:linear-gradient( rgba(43, 43, 43, 0.8) 100%, rgba(43, 43, 43, 0.8) 100%),url("https://50projects50days.com/projects/split-landing-page/xbox.jpg") center/cover;
+            height: 100vh;
+            width: 50vw;
+            position: relative;
+        }
+        .xbox-series-x:hover{
+            width: 120vw;
+            transition: width 0.7s ease-in;
+        }
+        .xbox-series-x h1{
+            position: absolute;
+            top:22%;
+            left: 35%;
+            font-size: 60px;
+            color: #fff;
+            overflow: hidden;
+            min-width: auto;
+            font-weight: bold;
+            min-height: auto;
+        }
+        button{
+            position: absolute;
+            top: 40%; left: 40%;
+            border: none;
+            text-transform: uppercase; 
+            background-color: transparent;
+            border: 5px solid white;
+            color: white;
+            padding: 30px 80px;
+            font-style: bold;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .left-button:hover{
+            background-color: rgba(87, 84, 236, 1);
+            border: 0;
+        }
+        .right-button:hover{
+            background-color: green;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="playstation-five">
+        <h1>Playstation 5</h1>
+        <button type='button' class='left-button'>Buy Now</button>
+    </div>
+    <div class="xbox-series-x">
+        <h1>XBox Series X</h1>
+        <button type='button' class='right-button'>Buy Now</button>
+    </div>
+</body>
+</html>

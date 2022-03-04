@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dad Jokes</title>
+    <style>
+      body {
+        background-color: #686de0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "Roboto", sans-serif;
+        overflow: hidden;
+      }
+      .container {
+        height: 65vh;
+        width: 55vw;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      .container h3 {
+        text-align: center;
+        padding: 25px 0 0 0;
+        opacity: 0.5;
+        letter-spacing: 1.5px;
+      }
+      #jokeDiv{
+        font-size: large;
+        display: block;
+        text-align: center;
+        padding: 100px 0 0 0;
+      }
+      #generateJoke {
+        position: fixed;
+        top: 65%;
+        left: 44%;
+        background-color: #9f68e0;
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        padding: 20px 30px;
+        box-shadow: 0 0 10px 0 white;
+        border-radius: 10px;
+        font-size: 17px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Don't Laugh Container</h3>
+      <div id="jokeDiv"></div>
+      <button type="button" id="generateJoke">Get Another Joke</button>
+    </div>
+    <script>
+      const generateJokeBtn = document.getElementById("generateJoke");
+      const jokeDiv = document.getElementById("jokeDiv");
+      jokeDiv.innerHTML=`My cat was just sick on the carpet, I don’t think it’s feline well.`;
+      generateJokeBtn.addEventListener("click", async () => {
+        const config = {
+          headers: {
+            Accept: "application/json",
+          },
+        };
+        const result = await fetch('https://icanhazdadjoke.com', config);
+        const data = await result.json();
+        jokeDiv.innerHTML=data.joke;
+      });
+    </script>
+  </body>
+</html>
