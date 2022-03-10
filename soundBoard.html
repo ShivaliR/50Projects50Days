@@ -44,25 +44,25 @@
         let btn = document.getElementById(sound);
         if (btn.children.length === 0) {
         let audio = document.createElement("audio");
-        // audio.src = `audio/${sound}.mp3`;--> NOT WORKING
-        if(sound=='applause'){
-            audio.src=`https://50projects50days.com/projects/sound-board/sounds/applause.mp3`;
-        }
-        if(sound=='boo'){
-            audio.src=`https://50projects50days.com/projects/sound-board/sounds/boo.mp3`;
-        }
-        if(sound=='gasp'){
-            audio.src='https://50projects50days.com/projects/sound-board/sounds/gasp.mp3';
-        }
-        if(sound=='tada'){
-            audio.src=`https://50projects50days.com/projects/sound-board/sounds/tada.mp3`;
-        }
-        if(sound=='victory'){
-            audio.src=`https://50projects50days.com/projects/sound-board/sounds/victory.mp3`;
-        }
-        if(sound=='wrong'){
-            audio.src=`https://50projects50days.com/projects/sound-board/sounds/wrong.mp3`;
-        }
+        audio.src = `audio/${sound}.mp3`;
+        // if(sound=='applause'){
+        //     audio.src=`./audio/applause.mp3`;
+        // }
+        // if(sound=='boo'){
+        //     audio.src=`https://50projects50days.com/projects/sound-board/sounds/boo.mp3`;
+        // }
+        // if(sound=='gasp'){
+        //     audio.src='https://50projects50days.com/projects/sound-board/sounds/gasp.mp3';
+        // }
+        // if(sound=='tada'){
+        //     audio.src=`https://50projects50days.com/projects/sound-board/sounds/tada.mp3`;
+        // }
+        // if(sound=='victory'){
+        //     audio.src=`https://50projects50days.com/projects/sound-board/sounds/victory.mp3`;
+        // }
+        // if(sound=='wrong'){
+        //     audio.src=`https://50projects50days.com/projects/sound-board/sounds/wrong.mp3`;
+        // }
         audio.id=`audio-${sound}`;
         document.getElementById(sound).appendChild(audio);
         btn.addEventListener('click', ()=>{

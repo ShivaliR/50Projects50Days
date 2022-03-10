@@ -62,7 +62,7 @@
       generateJokeBtn.addEventListener("click", async () => {
         const config = {
           headers: {
-            Accept: "application/json",
+            'Content-Type': "application/json",
           },
         };
         const result = await fetch('https://icanhazdadjoke.com', config);

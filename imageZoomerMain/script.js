@@ -46,7 +46,7 @@ function zoomImage(e) {
 function getMousePos(e) {
     let x = e.clientX - containerRect.left - lensRect.width / 2
     let y = e.clientY - containerRect.top - lensRect.height / 2
-
+    console.log(e.clientX- containerRect.left,e.clientY- containerRect.top );
     let minX = 0
     let minY = 0
     let maxX = containerRect.width - lensRect.width
