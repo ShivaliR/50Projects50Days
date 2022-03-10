@@ -33,7 +33,6 @@
         border-radius: 50%;
         height: 25px; width: 25px;
         border: 1px solid purple;
-        position: relative;
       }
       .value-container{
         height: auto;
@@ -44,7 +43,7 @@
         padding: 5px 15px;
         border-radius: 5px;
         box-shadow: 0 0 10px 0 #ccc;
-        transform: translate(-270%, -150%);
+        transform: translate(0%, -150%)
       }
     </style>
   </head>
@@ -66,8 +65,7 @@
         const valueContainer = document.querySelector('.value-container');
         function rangeSlide(value){
             valueContainer.innerHTML = value;
-            console.log(`translate(${value/10}px, -150%)`);
-            valueContainer.style.left=`translate(${value/10}px, -150%)`;
+            // valueContainer.style.transform=`translate(calc(-270% + ${value}px), -150%)`;
         }
     </script>
   </body>
