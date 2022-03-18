@@ -7,64 +7,59 @@
     <title>Custom Range Slider</title>
     <style>
       body {
-        background-color: #c3cfe2;
+        background: linear-gradient(to right, teal 30%, #fff 70%);
       }
       body h2 {
         text-align: center;
         font-family: "Lato", sans-serif;
+        font-weight: 500;
+        font-style: italic;
+        text-shadow:  #FC0 1px 0 10px;
       }
       .container {
-        height: 80vh;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
-        width: 400px;
+        width: 100vw;
+        flex-direction: column;
       }
       .range-bar{
         -webkit-appearance: none;
-        width: 100%;
+        width: 50%;
         height: 15px;
         outline: none;
-        background-color: purple;
+        background-color: #000000;
         border-radius: 50px;
         position: relative;
       }
       .range-bar::-webkit-slider-thumb{
         -webkit-appearance: none;
-        background-color: #fff;
+        background-color: gold;
         border-radius: 50%;
         height: 25px; width: 25px;
-        border: 1px solid purple;
-
+        border: 1px solid gold;
       }
       .value-container{
         height: auto;
         width: 40px;
         background-color: white;
         position: absolute;
-        left: 0%;
         text-align: center;
         padding: 5px 15px;
         border-radius: 5px;
         box-shadow: 0 0 10px 0 #ccc;
-        transform: translate(-50%, -150%)
+        /* transform: translate(-50%, -200%); */
       }
     </style>
   </head>
   <body>
     <h2>Custom Range Slider</h2>
     <div class="container">
-      <input
-        type="range"
-        class="range-bar"
-        name=""
-        min="0"
-        max="100"
-        value="0"
-        oninput="rangeSlide(this.value)"
-        />   
-    <input type="number" class="value-container" id="value-containerId">0</input>
+      <input type="range" class="range-bar" min="0" max="100" value="0" oninput="rangeSlide(this.value)"/>   
+      <input type="number" class="value-container" id="value-containerId">0</input>
+      <input type="number" id="enterValue" placeholder="0">
     </div>
     <script type="text/javascript">
         const valueContainer = document.querySelector('.value-container');
