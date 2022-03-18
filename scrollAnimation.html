@@ -4,118 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroll Animation</title>
-    <style>
-        *{margin: 0;}
-        body{
-            background-color: #efedd6;
-            overflow-x: hidden;
-        }
-        h1{
-            text-align: center;
-            font-weight: bold;
-            line-height: 2;
-            font-family: 'Roboto', sans-serif;
-            font-size: 2em;
-        }
-        .container{
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            gap: 20px;
-            justify-content: center;
-        }
-        .content-item{
-            background-color: steelblue;
-            color: white;
-            width: 25vw;
-            height: 28vh;
-            position: relative;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px 0 rgb(99, 97, 97);
-        }
-        .fixed{
-            position: relative;
-            left: 0%;
-        }
-        .content-item h3{
-            position: absolute;
-            top: 50%;
-            left:50%;
-            transform: translate(-50%, -50%);
-            font-size: 40px;
-        }
-        .left-transit{
-            position: relative;
-            left: -100%;
-            /* animation-name: leftToRight;
-            animation-duration: 1s;
-            animation-fill-mode: forwards; */
-            /* TO PREVENT ANIMATION FROM GOING TO ITS ORIGINAL VALUE  */
-            /* animation-iteration-count: infinite; */
-            transition: left 0.7s ease-in;
-        }
-        .right-transit{
-            position: relative;
-            left: 100%;
-            transition: left 0.7s ease-in;
-        }
-        .active{
-            position: relative;
-            left: 0%;
-            transition: left 0.7s ease-in;
-        }
-       /* @keyframes leftToRight{
-           from{left: -100%;}
-           to{left: 0%;}
-       } */
-    </style>
+    <title>Scroll Card</title>
+    <link rel="stylesheet" href="css/scrollAnimation.css">
+    <script src="js/scrollAnimation.js"></script>
 </head>
 <body>
-    <h1>Scroll to see the animation</h1>
-    <div class="container">
-        <div class="content-item fixed"><h3>Content</h3></div>
-        <div class="content-item fixed"><h3>Content</h3></div>
-        <div class="content-item fixed"><h3>Content</h3></div>
-        <div class="content-item left-transit"><h3>Content</h3></div>
-        <div class="content-item right-transit"><h3>Content</h3></div>
-        <div class="content-item left-transit"><h3>Content</h3></div>
-        <div class="content-item right-transit"><h3>Content</h3></div>
-        <div class="content-item left-transit"><h3>Content</h3></div>
-        <div class="content-item right-transit"><h3>Content</h3></div>
-        <div class="content-item left-transit"><h3>Content</h3></div>
-        <div class="content-item right-transit"><h3>Content</h3></div>
-        <div class="content-item left-transit"><h3>Content</h3></div>
-        <div class="content-item right-transit"><h3>Content</h3></div>
+    <h2>Scroll to see the animation</h2>
+    <div class="card-container">
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
+        <div class="card"><h1>Content</h1></div>
     </div>
-    <script>
-        const evenItems = document.querySelectorAll('.left-transit');
-        const oddItems = document.querySelectorAll('.right-transit');
-        window.addEventListener('scroll', ()=>{
-            console.log("Window height", window.innerHeight); 
-            const triggerBottom = window.innerHeight / 5*4;
-            console.log('triggerbottom',triggerBottom)
-            evenItems.forEach(item=>{
-                const itemTop = item.getBoundingClientRect().top;
-                console.log("item top",itemTop);
-                if(itemTop<triggerBottom){
-                    item.classList.add('active');
-                }
-                else{
-                    item.classList.remove('active');
-                }
-            })
-            oddItems.forEach(item=>{
-                const itemTop = item.getBoundingClientRect().top;
-                if(itemTop<triggerBottom){
-                    item.classList.add('active');
-                }
-                else{
-                    item.classList.remove('active');
-                }
-            })
-        }); 
-        
-    </script>
 </body>
 </html>

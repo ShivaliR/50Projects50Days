@@ -2,70 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/autoTextEffect.css" />
     <title>Auto Text Effect</title>
-    <style>
-      body {
-        background-color: darksalmon;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      #text {
-        font-size: xx-large;
-        font-weight: bold;
-      }
-      #speed {
-        position: absolute;
-        bottom: 10%;
-        height: auto;
-        width: fit-content;
-        background-color: rgba(0, 0, 0, 0.1);
-        padding: 10px 5px;
-        font-size: x-large;
-      }
-      input[type="number"] {
-        background-color: darksalmon;
-        border: none;
-        height: 5vh;
-        width: 5vw;
-        font-size: large;
-        outline: none;
-        text-align: center;
-      }
-    </style>
   </head>
   <body>
-    <div class="text-container" id="text"></div>
-    <div class="insert-speed" id="speed">
-      <span
-        >Speed:
-        <input type="number" name="1" id="number-input" value="10" min="0" />
-      </span>
+    <h1 id="text">Starting...</h1>
+    <div>
+      <label for="speed">Speed:</label>
+      <input type="number" name="speed" id="speed" value="1" min="1" max="10" step="1">
     </div>
+    <script src="js/autoTextEffect.js"></script>
   </body>
-  <script>
-    const inputChange = document.getElementById("number-input");
-    let text = "We Love Programming!";
-    let i = 0;
-    autoTextEffect();
-    var timeInterval = 0;
-    inputChange.addEventListener("input", autoTextEffect);
-    function autoTextEffect() {
-      let speed = document.getElementById("number-input").value;
-      if (i < text.length) {
-        if (document.getElementById("text").innerHTML == text) {
-          console.log("Yes");
-          document.getElementById("text").innerHTML = "";
-        }
-        document.getElementById("text").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(autoTextEffect, speed * 10);
-      } else {
-        i = 0;
-      }
-    }
-  </script>
 </html>
