@@ -5,63 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verify Account UI</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-      }
-      .container {
-        height: 60%;
-        width: 50%;
-        border: 3px solid black;
-        border-radius: 10px;
-        position: relative;
-      }
-      .container h3 {
-        text-transform: capitalize;
-        text-align: center;
-        font-size: x-large;
-      }
-      .container p {
-        text-align: center;
-        font-size: medium;
-        line-height: 25px;
-        margin: 0;
-        font-family: "Muli", sans-serif;
-        font-weight: 100;
-      }
-      .digit-class {
-        display: flex;
-        margin: 5% 0 0 0;
-        gap: 5%;
-      }
-      input[type="text"] {
-        height: 15vh;
-        text-align: center;
-        width: 15%;
-        font-size: 50px;
-        color: gray;
-        border: 1px dotted gray;
-        border-radius: 10px;
-      }
-      .info-text p {
-        background-color: #ccc;
-        color: gray;
-        font-weight: 100;
-        width: 50%;
-        text-align: center;
-        border-radius: 5px;
-        padding: 5px 10px;
-        margin-top: 5%;
-        margin-left: 20%;
-        font-family: "Muli", "sans-serif";
-        letter-spacing: 0.5px;
-        line-height: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/verifyAccountUi.css">
+    <script src="js/verifyAccountUi.js"></script>
   </head>
   <body>
     <div class="container">
@@ -69,12 +14,54 @@
       <p>We emailed you the six digit code to shivaliranka12**@email.com</p>
       <p>Enter the code below to confirm your email address.</p>
       <div class="digit-class">
-        <input type="text" name="first-digit" id="first-digit" value="0" />
-        <input type="text" name="second-digit" id="second-digit" value="0" />
-        <input type="text" name="third-digit" id="third-digit" value="0" />
-        <input type="text" name="fourth-digit" id="fourth-digit" value="0" />
-        <input type="text" name="fifth-digit" id="fifth-digit" value="0" />
-        <input type="text" name="sixth-digit" id="sixth-digit" value="0" />
+        <input
+          type="number"
+          name="first-digit"
+          id="first-digit"
+          min="0"
+          max="9"
+          placeholder="0"
+        />
+        <input
+          type="number"
+          name="second-digit"
+          id="second-digit"
+          min="0"
+          max="9"
+          placeholder="0"
+        />
+        <input
+          type="number"
+          name="third-digit"
+          id="third-digit"
+          min="0"
+          max="9"
+          placeholder="0"
+        />
+        <input
+          type="number"
+          name="fourth-digit"
+          id="fourth-digit"
+          min="0"
+          max="9"
+          placeholder="0"
+        />
+        <input
+          type="number"
+          name="fifth-digit"
+          id="fifth-digit"
+          min="0"
+          max="9"
+          placeholder="0"
+        />
+        <input
+          type="number"
+          name="sixth-digit"
+          id="sixth-digit"
+          min="0"
+          max="9"
+          placeholder="0"
+        />
       </div>
       <div class="info-text">
         <p>
@@ -83,24 +70,6 @@
         </p>
       </div>
     </div>
-    <script type="text/javascript">
-      const inputs = document.querySelectorAll("input");
-      inputs[0].focus();
-      inputs.forEach((input, index) => {
-        input.addEventListener("keydown", (e) => {
-          if (e.key >= 0 && e.key <= 9) {
-            inputs[index].value = "";
-            if (inputs[index + 1]) {
-              setTimeout(() => inputs[index + 1].focus(), 10);
-            }
-          } else if (e.key === "Backspace") {
-            if (inputs[index - 1]) {
-              setTimeout(() => inputs[index - 1].focus(), 10);
-            }
-          }
-        });
-      });
-    </script>
     <!-- 
         KeyPress, KeyUp and KeyDown are analogous to, respectively: Click, MouseUp, and MouseDown.
 

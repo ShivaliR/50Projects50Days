@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #2596be;
+  }
+  .container {
+    height: 60%;
+    width: 50%;
+    box-shadow: 0 0 10px 0 black;
+    border-radius: 10px;
+    position: relative;
+    background-color: white;
+  }
+  .container h3 {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: x-large;
+  }
+  .container p {
+    text-align: center;
+    font-size: medium;
+    line-height: 25px;
+    margin: 0;
+    font-family: "Muli", sans-serif;
+    font-weight: 100;
+  }
+  .digit-class {
+    display: flex;
+    margin: 5% 0 0 0;
+    gap: 5%;
+  }
+  input[type="number"] {
+    height: 15vh;
+    text-align: center;
+    width: 15%;
+    font-size: 50px;
+    color: gray;
+    border: 1px dotted gray;
+    border-radius: 10px;
+    caret-color: black;
+  }
+  /* TO REMOVE INCREAMENT DECREMENT SPIN BUTTONS FROM INPUT NUMBER FIELD  */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+  .info-text p {
+    background-color: #ccc;
+    color: gray;
+    font-weight: 100;
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 5%;
+    margin-left: 20%;
+    font-family: "Muli", "sans-serif";
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    box-shadow: 0 0 10px 0 black;
+  }
+  input:focus {
+    outline: 2px solid black;
+  }

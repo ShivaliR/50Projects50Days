@@ -18,14 +18,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+        width: 400px;
       }
       .range-bar{
         -webkit-appearance: none;
-        width: 400px;
+        width: 100%;
         height: 15px;
         outline: none;
         background-color: purple;
         border-radius: 50px;
+        position: relative;
       }
       .range-bar::-webkit-slider-thumb{
         -webkit-appearance: none;
@@ -33,17 +36,19 @@
         border-radius: 50%;
         height: 25px; width: 25px;
         border: 1px solid purple;
+
       }
       .value-container{
         height: auto;
         width: 40px;
         background-color: white;
         position: absolute;
+        left: 0%;
         text-align: center;
         padding: 5px 15px;
         border-radius: 5px;
         box-shadow: 0 0 10px 0 #ccc;
-        transform: translate(0%, -150%)
+        transform: translate(-50%, -150%)
       }
     </style>
   </head>
@@ -55,17 +60,17 @@
         class="range-bar"
         name=""
         min="0"
-        max="1000"
+        max="100"
         value="0"
         oninput="rangeSlide(this.value)"
         />   
-    <div class="value-container" id="value-containerId">0</div>
+    <input type="number" class="value-container" id="value-containerId">0</input>
     </div>
     <script type="text/javascript">
         const valueContainer = document.querySelector('.value-container');
         function rangeSlide(value){
             valueContainer.innerHTML = value;
-            // valueContainer.style.transform=`translate(calc(-270% + ${value}px), -150%)`;
+            valueContainer.style.left= `${value}%`;
         }
     </script>
   </body>
